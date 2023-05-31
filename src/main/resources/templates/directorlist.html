@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Human Resources Management</title>
+</head>
+<body>
+<h1>Director List</h1>
+<table>
+    <thead>
+    <tr>
+        <th> Firstname </th>
+        <th> Lastname </th>
+        <th> Age </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${directors.empty}">
+        <td colspan="2"> No Director Available </td>
+    </tr>
+    <tr th:each="director : ${directors}">
+        <td><span th:text="${director.firstName}"> Firstname </span></td>
+        <td><span th:text="${director.lastName}"> Lastname </span></td>
+        <td><span th:text="${director.age}"> Age </span></td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<p>
+    <a th:href="@{/}">Return to Home Page</a>
+</p>
+</body>
+</html>
